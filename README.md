@@ -1,6 +1,6 @@
 # Tool hỗ trợ xếp lịch cho các đồng chí KMA
 
-- Demo: [https://tin-chi-ngosangns.web.app](https://tin-chi-ngosangns.web.app/)
+- Demo: [https://tin-chi-kma.web.app](https://tin-chi-kma.web.app/)
 
 - Công cụ cần thiết:
   - Node.js
