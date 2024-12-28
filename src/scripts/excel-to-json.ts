@@ -10,59 +10,11 @@ import {
 
 // Cài đặt thông số cho file Excel
 // Thực hiện mỗi khi cập nhật file Excel mới
-const TITLE = 'Học kỳ 2 năm học 2023 - 2024';
+const TITLE = 'Học kỳ 2 năm học 2024 - 2025';
 const SHEET_DATA: SheetData = {
-  CT4: {
+  A19C7D6: {
     startRow: 5,
-    endRow: 112,
-    fieldColumn: {
-      [Field.Class]: 'D',
-      [Field.DayOfWeek]: 'G',
-      [Field.Session]: 'H',
-      [Field.StartDate]: 'J',
-      [Field.EndDate]: 'K',
-      [Field.Teacher]: 'L',
-    },
-  },
-  AT17CT5DT4: {
-    startRow: 5,
-    endRow: 373,
-    fieldColumn: {
-      [Field.Class]: 'D',
-      [Field.DayOfWeek]: 'G',
-      [Field.Session]: 'H',
-      [Field.StartDate]: 'J',
-      [Field.EndDate]: 'K',
-      [Field.Teacher]: 'L',
-    },
-  },
-  AT18CT6DT5: {
-    startRow: 5,
-    endRow: 320,
-    fieldColumn: {
-      [Field.Class]: 'D',
-      [Field.DayOfWeek]: 'G',
-      [Field.Session]: 'H',
-      [Field.StartDate]: 'J',
-      [Field.EndDate]: 'K',
-      [Field.Teacher]: 'L',
-    },
-  },
-  AT19CT7DT6: {
-    startRow: 5,
-    endRow: 424,
-    fieldColumn: {
-      [Field.Class]: 'D',
-      [Field.DayOfWeek]: 'G',
-      [Field.Session]: 'H',
-      [Field.StartDate]: 'J',
-      [Field.EndDate]: 'K',
-      [Field.Teacher]: 'L',
-    },
-  },
-  AT20CT8DT7: {
-    startRow: 5,
-    endRow: 398,
+    endRow: 490,
     fieldColumn: {
       [Field.Class]: 'D',
       [Field.DayOfWeek]: 'G',
