@@ -1,12 +1,20 @@
 {
   "hosting": {
-    "public": "dist/tin-chi/browser",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "rewrites": [
       {
         "source": "**",
         "destination": "/index.html"
       }
-    ]
+    ],
+    "github": {
+    "repo": "ShadofuTRT/tin-chi-kma",
+    "branch": "master" 
+  }
   }
 }
