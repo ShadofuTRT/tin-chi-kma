@@ -1,10 +1,10 @@
 import { Field, SheetData } from '../types/excel';
 
-export const TITLE = 'Học kỳ 2 năm học 2023 - 2024';
+export const TITLE = 'Học kỳ 1 năm học 2025 - 2026';
 export const SHEET_DATA: SheetData = {
-  CT4: {
+  AT18: {
     startRow: 5,
-    endRow: 112,
+    endRow: 76,
     fieldColumn: {
       [Field.Class]: 'D',
       [Field.DayOfWeek]: 'G',
@@ -14,9 +14,9 @@ export const SHEET_DATA: SheetData = {
       [Field.Teacher]: 'L',
     },
   },
-  AT17CT5DT4: {
+  C6: {
     startRow: 5,
-    endRow: 373,
+    endRow: 212,
     fieldColumn: {
       [Field.Class]: 'D',
       [Field.DayOfWeek]: 'G',
@@ -26,9 +26,9 @@ export const SHEET_DATA: SheetData = {
       [Field.Teacher]: 'L',
     },
   },
-  AT18CT6DT5: {
+  D5: {
     startRow: 5,
-    endRow: 320,
+    endRow: 23,
     fieldColumn: {
       [Field.Class]: 'D',
       [Field.DayOfWeek]: 'G',
@@ -38,9 +38,9 @@ export const SHEET_DATA: SheetData = {
       [Field.Teacher]: 'L',
     },
   },
-  AT19CT7DT6: {
+  AT19: {
     startRow: 5,
-    endRow: 424,
+    endRow: 253,
     fieldColumn: {
       [Field.Class]: 'D',
       [Field.DayOfWeek]: 'G',
@@ -50,9 +50,45 @@ export const SHEET_DATA: SheetData = {
       [Field.Teacher]: 'L',
     },
   },
-  AT20CT8DT7: {
+  C7: {
     startRow: 5,
-    endRow: 398,
+    endRow: 190,
+    fieldColumn: {
+      [Field.Class]: 'D',
+      [Field.DayOfWeek]: 'G',
+      [Field.Session]: 'H',
+      [Field.StartDate]: 'J',
+      [Field.EndDate]: 'K',
+      [Field.Teacher]: 'L',
+    },
+  },
+  D6: {
+    startRow: 5,
+    endRow: 307,
+    fieldColumn: {
+      [Field.Class]: 'D',
+      [Field.DayOfWeek]: 'G',
+      [Field.Session]: 'H',
+      [Field.StartDate]: 'J',
+      [Field.EndDate]: 'K',
+      [Field.Teacher]: 'L',
+    },
+  },
+  A20C8D7: {
+    startRow: 5,
+    endRow: 533,
+    fieldColumn: {
+      [Field.Class]: 'D',
+      [Field.DayOfWeek]: 'G',
+      [Field.Session]: 'H',
+      [Field.StartDate]: 'J',
+      [Field.EndDate]: 'K',
+      [Field.Teacher]: 'L',
+    },
+  },
+  A21C9D8: {
+    startRow: 5,
+    endRow: 743,
     fieldColumn: {
       [Field.Class]: 'D',
       [Field.DayOfWeek]: 'G',
