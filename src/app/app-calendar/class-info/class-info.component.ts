@@ -98,4 +98,19 @@ export class ClassInfoComponent {
     const majorData = selectedClasses[major];
     return Object.values(majorData).some((subjectData) => subjectData.show);
   }
+  hasValidClasses(subjectData: Record<string, unknown>): boolean {
+    // Check if the subject has at least one class with non-empty schedules
+    if (!subjectData || typeof subjectData !== 'object') return false;
+
+    return Object.values(subjectData).some((classData: unknown) => {
+      return (
+        classData &&
+        typeof classData === 'object' && 
+        classData !== null &&
+        'schedules' in classData && 
+        Array.isArray((classData as { schedules: unknown[] }).schedules) &&
+        (classData as { schedules: unknown[] }).schedules.length > 0
+      );
+    });
+  }
 }

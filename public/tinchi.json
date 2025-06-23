@@ -168,19 +168,6 @@
           "teacher": "Giảng viên mời"
         }
       },
-      "Đồ án tốt nghiệp-1-25": {
-        "A1801": {
-          "schedules": [
-            {
-              "startDate": null,
-              "endDate": null,
-              "dayOfWeekStandard": null,
-              "startSession": null
-            }
-          ],
-          "teacher": "Khoa ATTT"
-        }
-      },
       "Học phần thi tốt nghiệp 1-1-25": {
         "A1801": {
           "schedules": [
@@ -2132,19 +2119,6 @@
       }
     },
     "D5": {
-      "Đồ án Tốt nghiệp-1-25": {
-        "D501": {
-          "schedules": [
-            {
-              "startDate": null,
-              "endDate": null,
-              "dayOfWeekStandard": null,
-              "startSession": null
-            }
-          ],
-          "teacher": "Khoa Điện tử vi mạch"
-        }
-      },
       "Thực tập Tốt nghiệp-1-25": {
         "D501": {
           "schedules": [
@@ -8669,8 +8643,8 @@
           "teacher": "Đặng Văn Hải"
         }
       },
-      "Giáo dục thể chất 5-1-25 (C8D701)-bóng đá": {
-        "": {
+      "Giáo dục thể chất 5-1-25": {
+        "C8D701-bóng đá": {
           "schedules": [
             {
               "startDate": 251027,
@@ -8709,10 +8683,8 @@
             }
           ],
           "teacher": "Đỗ Văn Hiếu"
-        }
-      },
-      "Giáo dục thể chất 5-1-25 (C8D702)-cờ vua": {
-        "": {
+        },
+        "C8D702-cờ vua": {
           "schedules": [
             {
               "startDate": 251027,
@@ -8751,10 +8723,8 @@
             }
           ],
           "teacher": "Hà Mai Hoa"
-        }
-      },
-      "Giáo dục thể chất 5-1-25 (C8D703)-cầu lông": {
-        "": {
+        },
+        "C8D703-cầu lông": {
           "schedules": [
             {
               "startDate": 251027,
@@ -8793,10 +8763,8 @@
             }
           ],
           "teacher": "Hà Mai Hoa"
-        }
-      },
-      "Giáo dục thể chất 5-1-25 (C8D704)-bóng rổ": {
-        "": {
+        },
+        "C8D704-bóng rổ": {
           "schedules": [
             {
               "startDate": 251027,
@@ -8835,10 +8803,8 @@
             }
           ],
           "teacher": "Lê Đình Huynh"
-        }
-      },
-      "Giáo dục thể chất 5-1-25 (C8D705)-bóng bàn": {
-        "": {
+        },
+        "C8D705-bóng bàn": {
           "schedules": [
             {
               "startDate": 251027,
@@ -11158,8 +11124,8 @@
           "teacher": "Trần Ngọc Quý; Tô Thị Tuyết Nhung"
         }
       },
-      "Tiếng Anh 3-1-25 (A20C8D701)_103": {
-        "": {
+      "Tiếng Anh 3-1-25": {
+        "A20C8D701_103": {
           "schedules": [
             {
               "startDate": 250811,
@@ -11282,10 +11248,8 @@
             }
           ],
           "teacher": "Nguyễn Thị Hải Hà"
-        }
-      },
-      "Tiếng Anh 3-1-25 (A20C8D702)_14F": {
-        "": {
+        },
+        "A20C8D702_14F": {
           "schedules": [
             {
               "startDate": 250811,
@@ -11408,10 +11372,8 @@
             }
           ],
           "teacher": "Trần Thị Vân; Giảng viên mời"
-        }
-      },
-      "Tiếng Anh 3-1-25 (A20C8D703)_18F": {
-        "": {
+        },
+        "A20C8D703_18F": {
           "schedules": [
             {
               "startDate": 250811,
@@ -11513,10 +11475,8 @@
             }
           ],
           "teacher": "Trần Thị Vân; Giảng viên mời"
-        }
-      },
-      "Tiếng Anh 3-1-25 (A20C8D704)_1DB": {
-        "": {
+        },
+        "A20C8D704_1DB": {
           "schedules": [
             {
               "startDate": 250811,
@@ -11639,10 +11599,8 @@
             }
           ],
           "teacher": "Nguyễn Thị Huyền Trang"
-        }
-      },
-      "Tiếng Anh 3-1-25 (A20C8D705)_1C4": {
-        "": {
+        },
+        "A20C8D705_1C4": {
           "schedules": [
             {
               "startDate": 250811,
@@ -11702,10 +11660,8 @@
             }
           ],
           "teacher": "Giảng viên mời"
-        }
-      },
-      "Tiếng Anh 3-1-25 (A20C8D706)_152": {
-        "": {
+        },
+        "A20C8D706_152": {
           "schedules": [
             {
               "startDate": 250811,
@@ -11765,10 +11721,8 @@
             }
           ],
           "teacher": "Trần Thị Vân; Giảng viên mời"
-        }
-      },
-      "Tiếng Anh 3-1-25 (A20C8D707)_197": {
-        "": {
+        },
+        "A20C8D707_197": {
           "schedules": [
             {
               "startDate": 250811,
@@ -11828,10 +11782,8 @@
             }
           ],
           "teacher": "Giảng viên mời"
-        }
-      },
-      "Tiếng Anh 3-1-25 (A20C8D708)_18E": {
-        "": {
+        },
+        "A20C8D708_18E": {
           "schedules": [
             {
               "startDate": 250811,
@@ -11891,10 +11843,8 @@
             }
           ],
           "teacher": "Nguyễn Thị Hải Hà"
-        }
-      },
-      "Tiếng Anh 3-1-25 (A20C8D709)_104": {
-        "": {
+        },
+        "A20C8D709_104": {
           "schedules": [
             {
               "startDate": 250811,
@@ -11954,9 +11904,7 @@
             }
           ],
           "teacher": "Nguyễn Thị Thanh Hiền"
-        }
-      },
-      "Tiếng Anh 3-1-25": {
+        },
         "DOIDIEM01": {
           "schedules": [
             {
@@ -12490,126 +12438,6 @@
         }
       },
       "Giáo dục thể chất 3-1-25": {
-        "A21C9D8.10": {
-          "schedules": [
-            {
-              "startDate": 250811,
-              "endDate": 250831,
-              "dayOfWeekStandard": 5,
-              "startSession": 1,
-              "endSession": 3
-            },
-            {
-              "startDate": 250901,
-              "endDate": 250907,
-              "dayOfWeekStandard": 5,
-              "startSession": 1,
-              "endSession": 3
-            },
-            {
-              "startDate": 250908,
-              "endDate": 251005,
-              "dayOfWeekStandard": 5,
-              "startSession": 1,
-              "endSession": 3
-            },
-            {
-              "startDate": 251006,
-              "endDate": 251012,
-              "dayOfWeekStandard": 3,
-              "startSession": 1,
-              "endSession": 3
-            },
-            {
-              "startDate": 251006,
-              "endDate": 251012,
-              "dayOfWeekStandard": 5,
-              "startSession": 1,
-              "endSession": 3
-            }
-          ],
-          "teacher": "Đỗ Văn Hiếu"
-        },
-        "A21C9D8.11": {
-          "schedules": [
-            {
-              "startDate": 250811,
-              "endDate": 250831,
-              "dayOfWeekStandard": 5,
-              "startSession": 4,
-              "endSession": 6
-            },
-            {
-              "startDate": 250901,
-              "endDate": 250907,
-              "dayOfWeekStandard": 5,
-              "startSession": 4,
-              "endSession": 6
-            },
-            {
-              "startDate": 250908,
-              "endDate": 251005,
-              "dayOfWeekStandard": 5,
-              "startSession": 4,
-              "endSession": 6
-            },
-            {
-              "startDate": 251006,
-              "endDate": 251012,
-              "dayOfWeekStandard": 1,
-              "startSession": 4,
-              "endSession": 6
-            },
-            {
-              "startDate": 251006,
-              "endDate": 251012,
-              "dayOfWeekStandard": 5,
-              "startSession": 4,
-              "endSession": 6
-            }
-          ],
-          "teacher": "Đỗ Văn Hiếu"
-        },
-        "A21C9D8.12": {
-          "schedules": [
-            {
-              "startDate": 250811,
-              "endDate": 250831,
-              "dayOfWeekStandard": 4,
-              "startSession": 10,
-              "endSession": 12
-            },
-            {
-              "startDate": 250901,
-              "endDate": 250907,
-              "dayOfWeekStandard": 4,
-              "startSession": 10,
-              "endSession": 12
-            },
-            {
-              "startDate": 250908,
-              "endDate": 251005,
-              "dayOfWeekStandard": 4,
-              "startSession": 10,
-              "endSession": 12
-            },
-            {
-              "startDate": 251006,
-              "endDate": 251012,
-              "dayOfWeekStandard": 2,
-              "startSession": 10,
-              "endSession": 12
-            },
-            {
-              "startDate": 251006,
-              "endDate": 251012,
-              "dayOfWeekStandard": 4,
-              "startSession": 10,
-              "endSession": 12
-            }
-          ],
-          "teacher": "Đỗ Văn Hiếu"
-        },
         "A21C9D8.01": {
           "schedules": [
             {
@@ -12688,7 +12516,7 @@
               "endSession": 3
             }
           ],
-          "teacher": "Đỗ Văn Hiếu"
+          "teacher": "Hà Mai Hoa"
         },
         "A21C9D8.03": {
           "schedules": [
@@ -12728,7 +12556,7 @@
               "endSession": 12
             }
           ],
-          "teacher": "Đỗ Văn Hiếu"
+          "teacher": "Lê Đình Huynh"
         },
         "A21C9D8.04": {
           "schedules": [
@@ -12768,7 +12596,7 @@
               "endSession": 3
             }
           ],
-          "teacher": "Đỗ Văn Hiếu"
+          "teacher": "Hà Mai Hoa"
         },
         "A21C9D8.05": {
           "schedules": [
@@ -12848,7 +12676,7 @@
               "endSession": 12
             }
           ],
-          "teacher": "Đỗ Văn Hiếu"
+          "teacher": "Hà Mai Hoa"
         },
         "A21C9D8.07": {
           "schedules": [
@@ -12888,7 +12716,7 @@
               "endSession": 3
             }
           ],
-          "teacher": "Đỗ Văn Hiếu"
+          "teacher": "Lê Đình Huynh"
         },
         "A21C9D8.08": {
           "schedules": [
@@ -12928,7 +12756,7 @@
               "endSession": 12
             }
           ],
-          "teacher": "Đỗ Văn Hiếu"
+          "teacher": "Hà Mai Hoa"
         },
         "A21C9D8.09": {
           "schedules": [
@@ -12964,6 +12792,126 @@
               "startDate": 251006,
               "endDate": 251012,
               "dayOfWeekStandard": 5,
+              "startSession": 10,
+              "endSession": 12
+            }
+          ],
+          "teacher": "Lê Đình Huynh"
+        },
+        "A21C9D8.10": {
+          "schedules": [
+            {
+              "startDate": 250811,
+              "endDate": 250831,
+              "dayOfWeekStandard": 5,
+              "startSession": 1,
+              "endSession": 3
+            },
+            {
+              "startDate": 250901,
+              "endDate": 250907,
+              "dayOfWeekStandard": 5,
+              "startSession": 1,
+              "endSession": 3
+            },
+            {
+              "startDate": 250908,
+              "endDate": 251005,
+              "dayOfWeekStandard": 5,
+              "startSession": 1,
+              "endSession": 3
+            },
+            {
+              "startDate": 251006,
+              "endDate": 251012,
+              "dayOfWeekStandard": 3,
+              "startSession": 1,
+              "endSession": 3
+            },
+            {
+              "startDate": 251006,
+              "endDate": 251012,
+              "dayOfWeekStandard": 5,
+              "startSession": 1,
+              "endSession": 3
+            }
+          ],
+          "teacher": "Đỗ Văn Hiếu"
+        },
+        "A21C9D8.11": {
+          "schedules": [
+            {
+              "startDate": 250811,
+              "endDate": 250831,
+              "dayOfWeekStandard": 5,
+              "startSession": 4,
+              "endSession": 6
+            },
+            {
+              "startDate": 250901,
+              "endDate": 250907,
+              "dayOfWeekStandard": 5,
+              "startSession": 4,
+              "endSession": 6
+            },
+            {
+              "startDate": 250908,
+              "endDate": 251005,
+              "dayOfWeekStandard": 5,
+              "startSession": 4,
+              "endSession": 6
+            },
+            {
+              "startDate": 251006,
+              "endDate": 251012,
+              "dayOfWeekStandard": 1,
+              "startSession": 4,
+              "endSession": 6
+            },
+            {
+              "startDate": 251006,
+              "endDate": 251012,
+              "dayOfWeekStandard": 5,
+              "startSession": 4,
+              "endSession": 6
+            }
+          ],
+          "teacher": "Lê Đình Huynh"
+        },
+        "A21C9D8.12": {
+          "schedules": [
+            {
+              "startDate": 250811,
+              "endDate": 250831,
+              "dayOfWeekStandard": 4,
+              "startSession": 10,
+              "endSession": 12
+            },
+            {
+              "startDate": 250901,
+              "endDate": 250907,
+              "dayOfWeekStandard": 4,
+              "startSession": 10,
+              "endSession": 12
+            },
+            {
+              "startDate": 250908,
+              "endDate": 251005,
+              "dayOfWeekStandard": 4,
+              "startSession": 10,
+              "endSession": 12
+            },
+            {
+              "startDate": 251006,
+              "endDate": 251012,
+              "dayOfWeekStandard": 2,
+              "startSession": 10,
+              "endSession": 12
+            },
+            {
+              "startDate": 251006,
+              "endDate": 251012,
+              "dayOfWeekStandard": 4,
               "startSession": 10,
               "endSession": 12
             }

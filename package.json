@@ -1,13 +1,13 @@
 {
   "name": "tin-chi",
-  "version": "0.0.0",
-  "scripts": {
+  "version": "0.0.0",  "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "convert": "ts-node ./src/scripts/excel-to-json.ts",
+    "validate": "ts-node ./src/scripts/validate-calendar-data.ts",
     "lint": "ng lint && knip",
     "knip": "knip"
   },

@@ -1,31 +1,37 @@
 # Tool hỗ trợ xếp lịch cho các đồng chí KMA
 
-- Demo: [https://tin-chi-ngosangns.web.app](https://tin-chi-ngosangns.web.app/)
+- Demo: [https://tin-chi-kma-fad4d.web.app/](https://tin-chi-kma-fad4d.web.app/)
 
-- Công cụ cần thiết:
-  - Node.js
-  - yarn: `npm i -g yarn`
-  - ts-node: `npm i -g ts-node`
+## Yêu cầu hệ thống
+
+- Node.js
+- yarn: `npm i -g yarn`
+- ts-node: `npm i -g ts-node`
 
 ## Chạy dự án trên local
 
 ```sh
-yarn
+yarn install
 yarn start
 ```
 
-## Cập nhật lịch
+## Cập nhật lịch học
 
-1. Clone repo về và chuẩn bị file excel tín chỉ của trường cấp.
-2. Copy file excel vào đường dẫn `public/tinchi.xlsx` của project.
-3. Chỉnh sửa biến `TITLE` và `SHEET_DATA` trong `src/configs/excel.ts`;
-4. Chạy lệnh `yarn convert`.
+1. Đặt file Excel thời khóa biểu tại `public/tinchi.xlsx`
+2. Cấu hình `TITLE` và `SHEET_DATA` trong `src/configs/excel.ts`
+3. Chuyển đổi dữ liệu:
+```sh
+yarn convert
+yarn validate
+```
 
 ## Deploy
 
-1. Build project: `yarn; yarn build`
-2. Upload code đã build trong thư mục `dist` lên hosting! :D
-3. Nhớ để nguyên credit tác giả nhé!
+1. Build project:
+```sh
+yarn build
+```
+2. Upload thư mục `dist` lên hosting web
 
 ---
 

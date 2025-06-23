@@ -95,28 +95,33 @@
           Chọn tất cả
         </button>
       </div>
-      <div class="flex flex-col">
-        <div
+      <div class="flex flex-col">        <div
           *ngFor="let subject of major.value | keyvalue"
           class="flex flex-col gap-2 py-3 border-t border-base-content"
         >
-          <button
-            class="btn btn-sm text-xs w-full btn-outline text-left justify-start"
-            [ngClass]="[selectedClasses?.[major.key]?.[subject.key]?.show ? 'btn-active btn-primary' : 'btn-outline']"
-            (click)="changeShow(major.key, subject.key)"
-          >
-            {{ subject.key }}
-          </button>
-          <div class="flex gap-1 flex-wrap ml-2">
+          <!-- Only show subjects that have at least one class with valid schedules -->
+          <ng-container *ngIf="hasValidClasses(subject.value)">
             <button
-              class="btn btn-xs text-xs btn-outline"
-              [ngClass]="[selectedClasses?.[major.key]?.[subject.key]?.class === code.key ? 'btn-active btn-accent' : 'btn-outline']"
-              *ngFor="let code of subject.value | keyvalue"
-              (click)="changeClass(major.key, subject.key, selectedClasses?.[major.key]?.[subject.key]?.class !== code.key ? code.key : null)"
+              class="btn btn-sm text-xs w-full btn-outline text-left justify-start"
+              [ngClass]="[selectedClasses?.[major.key]?.[subject.key]?.show ? 'btn-active btn-primary' : 'btn-outline']"
+              (click)="changeShow(major.key, subject.key)"
             >
-              {{ code.key }}
+              {{ subject.key }}
             </button>
-          </div>
+            <div class="flex gap-1 flex-wrap ml-2">
+              <button
+                class="btn btn-xs text-xs btn-outline"
+                [ngClass]="[selectedClasses?.[major.key]?.[subject.key]?.class === code.key ? 'btn-active btn-accent' : 'btn-outline']"
+                *ngFor="let code of subject.value | keyvalue"
+                (click)="changeClass(major.key, subject.key, selectedClasses?.[major.key]?.[subject.key]?.class !== code.key ? code.key : null)"
+              >
+                <!-- Only show classes that have valid schedules -->
+                <ng-container *ngIf="code.value?.schedules && code.value.schedules.length > 0">
+                  {{ code.key }}
+                </ng-container>
+              </button>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>
