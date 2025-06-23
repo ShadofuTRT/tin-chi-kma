@@ -47,7 +47,7 @@ export class AppCalendarComponent implements OnInit {
 
   readonly loading$ = new BehaviorSubject<boolean>(true);
 
-  showTab: 'class-info' | 'calendar' | 'more-info' = 'class-info';
+  showTab: 'main' | 'more-info' = 'main';
 
   constructor(public readonly cs: CalendarService) {}
 
@@ -81,9 +81,7 @@ export class AppCalendarComponent implements OnInit {
     } finally {
       this.loading$.next(false);
     }
-  }
-
-  switchTab(tab: 'class-info' | 'calendar' | 'more-info'): void {
+  }  switchTab(tab: 'main' | 'more-info'): void {
     this.showTab = tab;
   }
 

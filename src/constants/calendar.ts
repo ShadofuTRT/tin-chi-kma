@@ -8,5 +8,5 @@ export const END_EVENING_SESSION = 16;
 export const MIN_SESSION = 1;
 export const MAX_SESSION = 16;
 
-export const JSON_PATH = `/tinchi.json?t=${new Date().getTime()}`;
-export const EXCEL_PATH = `/tinchi.xlsx?t=${new Date().getTime()}`;
+export const JSON_PATH = `./tinchi.json?t=${new Date().getTime()}`;
+export const EXCEL_PATH = `./tinchi.xlsx?t=${new Date().getTime()}`;

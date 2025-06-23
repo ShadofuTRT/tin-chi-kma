@@ -2,30 +2,20 @@
 
 <main class="app">
   <!-- Toolbar -->
-  <div class="flex gap-3 overflow-x-auto print:hidden">
+  <div class="flex gap-3 overflow-x-auto print:hidden mb-4">
     @let calendar = cs.calendar$ | async;
     <button
       *ngIf="calendar?.title?.length"
-      class="hidden btn-primary md:inline-block btn mb-2 btn-outline btn-active cursor-default border-none"
+      class="hidden btn-primary md:inline-block btn btn-outline btn-active cursor-default border-none"
       disabled
     >
       {{ calendar!.title }}
-    </button>
-
-    <button
-      class="btn-sm text-xs btn-outline md:btn-md md:text-base mb-2 border-none whitespace-nowrap font-bold"
-      (click)="switchTab('class-info')"
-      [ngClass]="{ 'btn-active': showTab === 'class-info' }"
+    </button>    <button
+      class="btn-sm text-xs btn-outline md:btn-md md:text-base border-none whitespace-nowrap font-bold"
+      (click)="switchTab('main')"
+      [ngClass]="{ 'btn-active': showTab === 'main' }"
     >
-      Thông tin lớp
-    </button>
-
-    <button
-      class="btn-sm text-xs btn-outline md:btn-md md:text-base mb-2 border-none whitespace-nowrap font-bold"
-      (click)="switchTab('calendar')"
-      [ngClass]="{ 'btn-active': showTab === 'calendar' }"
-    >
-      Lịch học
+      Chọn lớp & Lịch học
       <div
         class="badge badge-accent text-xs badge-sm font-normal md:badge-md md:text-base md:font-bold"
         *ngIf="(cs.calendarTableData$ | async)?.totalConflictedSessions"
@@ -35,7 +25,7 @@
     </button>
 
     <button
-      class="btn-sm text-xs btn-outline md:btn-md md:text-base mb-2 border-none whitespace-nowrap font-bold"
+      class="btn-sm text-xs btn-outline md:btn-md md:text-base border-none whitespace-nowrap font-bold"
       (click)="switchTab('more-info')"
       [ngClass]="{ 'btn-active': showTab === 'more-info' }"
     >
@@ -45,7 +35,7 @@
     <div class="flex-grow hidden md:block"></div>
 
     <button
-      class="btn-sm text-xs btn-outline md:btn-md md:text-base mb-2 border-none whitespace-nowrap font-bold"
+      class="btn-sm text-xs btn-outline md:btn-md md:text-base border-none whitespace-nowrap font-bold"
       (click)="print()"
       [disabled]="loading$ | async"
     >
@@ -53,41 +43,47 @@
     </button>
   </div>
 
-  <div class="relative">
-    <!-- Hiển thị danh sách lịch đã chọn khi in -->
-    <ul class="hidden print:block">
-      @for(major of (cs.selectedClasses$ | async) || {} | keyvalue; track major)
-      { @for(subject of major.value || {} | keyvalue; track subject) {
-      <li *ngIf="subject.value.class && subject.value.show" class="mb-3">
-        <p class="border px-3 py-1 inline-block">
-          {{ major.key }} - {{ subject.key }}:
-          {{ subject.value.class }}
-        </p>
-      </li>
-      } }
-    </ul>
-
-    <!-- Bảng chọn lịch -->
-    <app-class-info
-      class="print:!hidden"
+  <div class="relative">    <!-- Hiển thị danh sách lịch đã chọn khi in -->
+    <div class="hidden print:block">
+      @for(major of (cs.selectedClasses$ | async) || {} | keyvalue; track major) {
+        @for(subject of major.value || {} | keyvalue; track subject) {
+          @if(subject.value.class && subject.value.show) {
+            <div class="mb-3">
+              <p class="border px-3 py-1 inline-block">
+                {{ major.key }} - {{ subject.key }}:
+                {{ subject.value.class }}
+              </p>
+            </div>
+          }
+        }
+      }
+    </div>    <!-- Side by side view (now main view) -->
+    <div 
+      class="print:!hidden grid gap-6 h-[calc(100vh-12rem)]"
       [ngClass]="{
-        'hidden': showTab !== 'class-info',
-      }"
-      (changeClass)="cs.changeClass($event)"
-      (changeShow)="cs.changeShow($event)"
-      (selectMajor)="cs.selectMajor($event)"
-      (generateCombinationOfSubjects)="generateCombinationOfSubjects($event)"
-    >
-    </app-class-info>
-
-    <!-- Lịch -->
-    <app-calendar
-      class="print:!block"
-      [ngClass]="{
-        'hidden': showTab !== 'calendar',
+        'hidden': showTab !== 'main',
+        'lg:grid-cols-5 xl:grid-cols-7': showTab === 'main'
       }"
     >
-    </app-calendar>
+      <!-- Class selection -->
+      <div class="lg:col-span-2 xl:col-span-2 border-r border-base-300 pr-4 overflow-y-auto">
+        <h3 class="text-lg font-bold mb-4 sticky top-0 bg-base-100 py-2">Chọn môn học & lớp</h3>
+        <app-class-info
+          (changeClass)="cs.changeClass($event)"
+          (changeShow)="cs.changeShow($event)"
+          (selectMajor)="cs.selectMajor($event)"
+          (generateCombinationOfSubjects)="generateCombinationOfSubjects($event)"
+        >
+        </app-class-info>
+      </div>
+
+      <!-- Calendar -->
+      <div class="lg:col-span-3 xl:col-span-5 overflow-y-auto">
+        <h3 class="text-lg font-bold mb-4 sticky top-0 bg-base-100 py-2">Lịch học</h3>
+        <app-calendar>
+        </app-calendar>
+      </div>
+    </div>
 
     <!-- Tab Thông tin thêm -->
     <app-more-info

@@ -52,11 +52,13 @@ function readExcelColumnToJson(
   // Chọn phạm vi cụ thể
   const rangeData = utils.sheet_to_json<CellData>(workSheet, {
     range: `${column}${startRow}:${column}${endRow}`,
+    header: 1,
   });
-
+  
   return rangeData
-    .map((row: CellData) => Object.values(row) as string[])
-    .flat();
+    .map((row: CellData) => Object.values(row).map(val => String(val || '')))
+    .flat()
+    .filter(val => val && val.trim() !== ''); // Filter out empty values
 }
 
 function main() {
@@ -65,7 +67,14 @@ function main() {
   // Lặp qua các sheet trong SHEET_DATA
   for (const sheetName of Object.keys(SHEET_DATA)) {
     const sheetData = SHEET_DATA[sheetName];
-    const workSheet = readSheetAndUnmerge(EXCEL_PATH, sheetName);
+    
+    let workSheet;
+    try {
+      workSheet = readSheetAndUnmerge(EXCEL_PATH, sheetName);
+    } catch (error) {
+      console.error(`Error loading sheet ${sheetName}:`, error);
+      continue; // Skip this sheet if it doesn't exist
+    }
 
     // Khởi tạo dữ liệu JSON cho sheet
     jsonData[sheetName] = {
@@ -96,16 +105,15 @@ function main() {
       Field.StartDate,
       Field.EndDate,
       Field.Teacher,
-    ];
-
-    // Đọc dữ liệu từ các cột và lưu vào JSON
-    for (const field of fields)
+    ];    // Đọc dữ liệu từ các cột và lưu vào JSON
+    for (const field of fields) {
       jsonSheetData.fieldData[field] = readExcelColumnToJson(
         workSheet,
         sheetData.fieldColumn[field],
         startRow,
         endRow
       );
+    }
   }
 
   // Khởi tạo dữ liệu kết quả JSON
@@ -114,9 +122,7 @@ function main() {
     minDate: Infinity,
     maxDate: 0,
     majors: {},
-  };
-
-  // Lặp qua các sheet trong jsonData
+  };  // Lặp qua các sheet trong jsonData
   for (const sheetName of Object.keys(jsonData)) {
     const { fieldData } = jsonData[sheetName];
 
@@ -124,6 +130,11 @@ function main() {
     for (let i = 0; i < fieldData[Field.Class].length; i++) {
       // Lấy tên lớp học
       const classTitle = fieldData[Field.Class][i];
+
+      // Skip if classTitle is not a valid string
+      if (!classTitle || typeof classTitle !== 'string') {
+        continue;
+      }
 
       // Lấy tên môn học
       const subjectName = classTitle.replace(/\(([^()]+?)\)$/, '').trim();
@@ -141,23 +152,14 @@ function main() {
       // Lấy mã lớp thực hành
       const practiceClassCode = classCodeWithPracticeClassCode.includes('.')
         ? classCodeWithPracticeClassCode.split('.')[1]
-        : '';
-
-      // Lấy ra tên khóa
-      const majorKeys: string[] = classCode.includes('-')
-        ? (() => {
-            const matches = classCode.split('-')[0].matchAll(/[A-Z]+[0-9]+/g);
-            return Array.from(matches, (match) => match[0]);
-          })()
-        : [];
+        : '';      // Use the sheet name as the major key instead of extracting from class code
+      const majorKey = sheetName;
 
       // Kiểm tra xem dữ liệu của lớp học đã tồn tại chưa
       const isClassDataExist =
-        jsonResultData.majors?.[majorKeys[0]]?.[subjectName]?.[classCode];
-
-      // Lấy dữ liệu của lớp học hiện tại hoặc tạo mới nếu chưa tồn tại
+        jsonResultData.majors?.[majorKey]?.[subjectName]?.[classCode];      // Lấy dữ liệu của lớp học hiện tại hoặc tạo mới nếu chưa tồn tại
       const classData = isClassDataExist
-        ? jsonResultData.majors[majorKeys[0]][subjectName][classCode]
+        ? jsonResultData.majors[majorKey][subjectName][classCode]
         : ({
             schedules: [],
             [Field.Teacher]: fieldData[Field.Teacher][i] ?? '',
@@ -173,23 +175,34 @@ function main() {
           classData.practiceSchedules[practiceClassCode] = [];
 
         schedules = classData.practiceSchedules[practiceClassCode];
+      }      // Lấy ra ngày bắt đầu và kết thúc
+      const startDateStr = fieldData[Field.StartDate][i];
+      const endDateStr = fieldData[Field.EndDate][i];
+      
+      // Skip if dates are missing
+      if (!startDateStr || !endDateStr) {
+        continue;
       }
-
-      // Lấy ra ngày bắt đầu và kết thúc
+      
       const currentStartDate = Number(
-        fieldData[Field.StartDate][i].split('/').reverse().join('')
+        startDateStr.split('/').reverse().join('')
       );
       const currentEndDate = Number(
-        fieldData[Field.EndDate][i].split('/').reverse().join('')
+        endDateStr.split('/').reverse().join('')
       );
 
       // Cập nhật ngày nhỏ nhất và lớn nhất
       if (currentStartDate < jsonResultData.minDate)
         jsonResultData.minDate = currentStartDate;
       if (currentEndDate > jsonResultData.maxDate)
-        jsonResultData.maxDate = currentEndDate;
-
-      const session = fieldData[Field.Session][i].split('->').map(Number);
+        jsonResultData.maxDate = currentEndDate;      const sessionStr = fieldData[Field.Session][i];
+      
+      // Skip if session is missing
+      if (!sessionStr || typeof sessionStr !== 'string') {
+        continue;
+      }
+      
+      const session = sessionStr.split('->').map(Number);
       const startSession = session[0]; // tiết bắt đầu của lịch học
       const endSession = session[1]; // tiết kết thúc của lịch học
 
@@ -207,18 +220,14 @@ function main() {
         [Field.DayOfWeekStandard]: dayOfWeekStandard,
         [Field.StartSession]: startSession,
         [Field.EndSession]: endSession,
-      });
+      });      // Cập nhật dữ liệu vào lại kho chính
+      if (!jsonResultData.majors[majorKey])
+        jsonResultData.majors[majorKey] = {};
 
-      // Cập nhật dữ liệu vào lại kho chính
-      for (const majorKey of majorKeys) {
-        if (!jsonResultData.majors[majorKey])
-          jsonResultData.majors[majorKey] = {};
+      if (!jsonResultData.majors[majorKey][subjectName])
+        jsonResultData.majors[majorKey][subjectName] = {};
 
-        if (!jsonResultData.majors[majorKey][subjectName])
-          jsonResultData.majors[majorKey][subjectName] = {};
-
-        jsonResultData.majors[majorKey][subjectName][classCode] = classData;
-      }
+      jsonResultData.majors[majorKey][subjectName][classCode] = classData;
     }
   }
 
